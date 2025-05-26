@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import podcastRouter from './routing/podcastroute';
 import { connectDB } from './config/database';
 
@@ -11,6 +12,8 @@ const port = process.env.PORT || 3000;
 // Connect to MongoDB
 connectDB();
 
+// Middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
